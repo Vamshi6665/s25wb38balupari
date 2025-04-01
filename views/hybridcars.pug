@@ -2,11 +2,24 @@ extends layout
 
 block content
   h1= title
-  p Welcome to vamshi Krishna balupari: 
+  p Below are some hybrid car search results:
 
--
- let  cars = [
-    { model_name: "Toyota Prius", battery_capacity_kwh: 8.8, manufacturer: "Toyota" },
-    { model_name: "Honda Clarity", battery_capacity_kwh: 17, manufacturer: "Honda" },
-    { model_name: "Hyundai Ioniq", battery_capacity_kwh: 8.9, manufacturer: "Hyundai" }
- ];
+  // Step 1: Define sample data using unbuffered server-side code
+  - let results = [
+      { name: "Toyota Prius", mileage_mpg: 56, type: "Hybrid" },
+      { name: "Honda Insight", mileage_mpg: 55, type: "Hybrid" },
+      { name: "Ford Fusion Hybrid", mileage_mpg: 42, type: "Hybrid" }
+    ];
+
+  // Step 2 & 3: Bootstrap grid structure
+  .container-fluid
+    .row
+      each car in results
+        .col-sm-3.border.p-2
+          h3= car.name
+          p Mileage: #{car.mileage_mpg} MPG
+          p Type: #{car.type}
+
+  // Step 8: Add a hyperlink back to the home page
+  p
+    a(href="/") Back to Home
