@@ -1,15 +1,12 @@
+extends layout
 
-const express = require('express');
-const router = express.Router();
+block content
+  h1= title
+  p Welcome to vamshi Krishna balupari: 
 
-const cars = [
+-
+ let  cars = [
     { model_name: "Toyota Prius", battery_capacity_kwh: 8.8, manufacturer: "Toyota" },
     { model_name: "Honda Clarity", battery_capacity_kwh: 17, manufacturer: "Honda" },
     { model_name: "Hyundai Ioniq", battery_capacity_kwh: 8.9, manufacturer: "Hyundai" }
-];
-
-router.get('/', (req, res) => {
-    res.render('hybrid_cars', { title: "Search Results - Hybrid Cars", cars });
-});
-
-module.exports = router;
+ ];
