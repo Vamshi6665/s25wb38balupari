@@ -5,4 +5,13 @@ block content
   p Welcome to vamshi Krishna balupari 
   button Sample button 
   button(type="button", class="btn btn-secondary" on click="faster()") press me
-   div#faster Add in extra
+  div#faster Add in extra
+   script.
+      let value = 1;
+      let amt = 2;
+      function faster() {
+        amt *= 2;
+        value += amt;
+        document.getElementById("faster").textContent = `Faster ${value} times ${amt}`;
+      }
+
